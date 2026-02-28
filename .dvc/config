@@ -1,0 +1,4 @@
+[core]
+    remote = tumor_storage
+['remote "tumor_storage"']
+    url = https://dagshub.com/alecorlo1234/ClasificadorTumorMama.dvc
