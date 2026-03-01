@@ -32,7 +32,7 @@ hf-login:
 	git switch -c update --track origin/update || git switch update
 	pip install -U "huggingface_hub[cli]"
 	git config --global credential.helper store
-	huggingface-cli login --token $(HF) --add-to-git-credential
+	hf auth login --token $(HF) --add-to-git-credential
 
 push-hub:
 	huggingface-cli upload alecorlo1234/ClasificadorTumorMama ./Aplicacion --repo-type=space --commit-message="Sincronizar archivos de Aplicacion"
