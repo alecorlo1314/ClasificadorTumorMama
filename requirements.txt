@@ -12,4 +12,4 @@ black
 pylint
 dvc
 jupyter
-pathspec
+pathspec==0.11.2
