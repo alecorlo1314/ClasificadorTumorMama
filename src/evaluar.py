@@ -73,7 +73,7 @@ def evaluar_modelo(pipeline, X_test, y_test, umbral=0.3):
                 color="white" if cm[i, j] > cm.max() / 2 else "black",
             )
     plt.tight_layout()
-    plt.savefig("Resultados/confusion_matrix.png")
+    plt.savefig("Resultados/matriz_confusion.png")
     plt.close()
 
     # Curva ROC
