@@ -4,7 +4,7 @@ emoji: 🔬
 colorFrom: blue
 colorTo: red
 sdk: gradio
-sdk_version: 4.44.0
+sdk_version: 6.8.0
 app_file: tumor_app.py
 pinned: false
 ---
