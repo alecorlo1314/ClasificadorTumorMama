@@ -15,9 +15,9 @@ eval:
 	cml comment create Resultados/reporte.md
 
 update-branch:
-	git config --global user.name "github-actions"
-	git config --global user.email "github-actions@github.com"
-	git commit -am "Actualizando resultados del modelo"
+	git config --global user.name $(USER_NAME)
+	git config --global user.email $(USER_EMAIL)
+	git commit -am "Actualizando los nuevos resultados"
 	git push --force origin HEAD:update
 
 configuracion_DVC_remoto:
@@ -32,7 +32,7 @@ hf-login:
 	git checkout -B update
 	git push -u origin update --force
 	pip install -U "huggingface_hub[cli]"
-	hf auth login --token $(HF_TUMOR) --add-to-git-credential
+	hf auth login --token $(HF) --add-to-git-credential
 
 push-hub:
 	huggingface-cli upload alecorlo1234/ClasificadorTumorMama ./Aplicacion --repo-type=space --commit-message="Sincronizar archivos de Aplicacion"
