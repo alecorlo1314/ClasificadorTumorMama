@@ -32,7 +32,6 @@ hf-login:
 	git checkout -B update
 	git push -u origin update --force
 	pip install -U "huggingface_hub[cli]"
-	git config --global credential.helper store
 	hf auth login --token $(HF_TUMOR) --add-to-git-credential
 
 push-hub:
