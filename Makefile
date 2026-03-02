@@ -33,7 +33,7 @@ hf-login:
 	git push -u origin update --force
 	pip install -U "huggingface_hub[cli]"
 	git config --global credential.helper store
-	hf auth login --token $(HF) --add-to-git-credential
+	hf auth login --token $(HF_TUMOR) --add-to-git-credential
 
 push-hub:
 	huggingface-cli upload alecorlo1234/ClasificadorTumorMama ./Aplicacion --repo-type=space --commit-message="Sincronizar archivos de Aplicacion"
