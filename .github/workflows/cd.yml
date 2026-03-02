@@ -1,17 +1,17 @@
 name: Continuous Deployment
-
 on:
   workflow_run:
     workflows: ["Continuous Integration"]
     types:
       - completed
+
   workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@v3
 
       - name: Despliegue hacia Hugging Face
         env:
