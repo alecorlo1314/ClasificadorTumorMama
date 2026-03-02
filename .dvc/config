@@ -2,3 +2,6 @@
     remote = tumor_storage
 ['remote "tumor_storage"']
     url = https://dagshub.com/alecorlo1234/ClasificadorTumorMama.dvc
+    auth = basic
+    user = alecorlo1234
+    password = a9cc6c486119c736678b39ba7576d9c46aa5fc46

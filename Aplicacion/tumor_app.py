@@ -20,49 +20,70 @@ pipeline = load(MODELO_PATH, trusted=unsafe)
 UMBRAL = 0.3
 
 FEATURES = [
-    "radius_mean", "texture_mean", "perimeter_mean", "area_mean",
-    "smoothness_mean", "compactness_mean", "concavity_mean",
-    "concave points_mean", "symmetry_mean", "fractal_dimension_mean",
-    "radius_se", "texture_se", "perimeter_se", "area_se",
-    "smoothness_se", "compactness_se", "concavity_se",
-    "concave points_se", "symmetry_se", "fractal_dimension_se",
-    "radius_worst", "texture_worst", "perimeter_worst", "area_worst",
-    "smoothness_worst", "compactness_worst", "concavity_worst",
-    "concave points_worst", "symmetry_worst", "fractal_dimension_worst",
+    "radius_mean",
+    "texture_mean",
+    "perimeter_mean",
+    "area_mean",
+    "smoothness_mean",
+    "compactness_mean",
+    "concavity_mean",
+    "concave points_mean",
+    "symmetry_mean",
+    "fractal_dimension_mean",
+    "radius_se",
+    "texture_se",
+    "perimeter_se",
+    "area_se",
+    "smoothness_se",
+    "compactness_se",
+    "concavity_se",
+    "concave points_se",
+    "symmetry_se",
+    "fractal_dimension_se",
+    "radius_worst",
+    "texture_worst",
+    "perimeter_worst",
+    "area_worst",
+    "smoothness_worst",
+    "compactness_worst",
+    "concavity_worst",
+    "concave points_worst",
+    "symmetry_worst",
+    "fractal_dimension_worst",
 ]
 
 # Rangos típicos para los sliders (min, max, default, step)
 RANGOS = {
-    "radius_mean":            (6.0,  30.0,  14.0,  0.1),
-    "texture_mean":           (9.0,  40.0,  19.0,  0.1),
-    "perimeter_mean":         (40.0, 190.0, 92.0,  0.5),
-    "area_mean":              (140.0,2500.0,654.0, 5.0),
-    "smoothness_mean":        (0.05, 0.17,  0.096, 0.001),
-    "compactness_mean":       (0.02, 0.35,  0.104, 0.001),
-    "concavity_mean":         (0.0,  0.43,  0.089, 0.001),
-    "concave points_mean":    (0.0,  0.20,  0.048, 0.001),
-    "symmetry_mean":          (0.10, 0.30,  0.181, 0.001),
-    "fractal_dimension_mean": (0.05, 0.10,  0.063, 0.001),
-    "radius_se":              (0.1,  3.0,   0.4,   0.01),
-    "texture_se":             (0.3,  5.0,   1.2,   0.01),
-    "perimeter_se":           (0.7,  22.0,  2.9,   0.1),
-    "area_se":                (6.0,  550.0, 40.0,  1.0),
-    "smoothness_se":          (0.001,0.031, 0.007, 0.001),
-    "compactness_se":         (0.002,0.135, 0.025, 0.001),
-    "concavity_se":           (0.0,  0.40,  0.032, 0.001),
-    "concave points_se":      (0.0,  0.053, 0.012, 0.001),
-    "symmetry_se":            (0.007,0.080, 0.021, 0.001),
-    "fractal_dimension_se":   (0.001,0.030, 0.004, 0.001),
-    "radius_worst":           (7.0,  37.0,  16.0,  0.1),
-    "texture_worst":          (12.0, 50.0,  25.0,  0.1),
-    "perimeter_worst":        (50.0, 252.0,107.0,  0.5),
-    "area_worst":             (180.0,4250.0,880.0, 5.0),
-    "smoothness_worst":       (0.07, 0.22,  0.132, 0.001),
-    "compactness_worst":      (0.02, 1.06,  0.254, 0.001),
-    "concavity_worst":        (0.0,  1.25,  0.272, 0.001),
-    "concave points_worst":   (0.0,  0.29,  0.115, 0.001),
-    "symmetry_worst":         (0.15, 0.66,  0.290, 0.001),
-    "fractal_dimension_worst":(0.055,0.208, 0.084, 0.001),
+    "radius_mean": (6.0, 30.0, 14.0, 0.1),
+    "texture_mean": (9.0, 40.0, 19.0, 0.1),
+    "perimeter_mean": (40.0, 190.0, 92.0, 0.5),
+    "area_mean": (140.0, 2500.0, 654.0, 5.0),
+    "smoothness_mean": (0.05, 0.17, 0.096, 0.001),
+    "compactness_mean": (0.02, 0.35, 0.104, 0.001),
+    "concavity_mean": (0.0, 0.43, 0.089, 0.001),
+    "concave points_mean": (0.0, 0.20, 0.048, 0.001),
+    "symmetry_mean": (0.10, 0.30, 0.181, 0.001),
+    "fractal_dimension_mean": (0.05, 0.10, 0.063, 0.001),
+    "radius_se": (0.1, 3.0, 0.4, 0.01),
+    "texture_se": (0.3, 5.0, 1.2, 0.01),
+    "perimeter_se": (0.7, 22.0, 2.9, 0.1),
+    "area_se": (6.0, 550.0, 40.0, 1.0),
+    "smoothness_se": (0.001, 0.031, 0.007, 0.001),
+    "compactness_se": (0.002, 0.135, 0.025, 0.001),
+    "concavity_se": (0.0, 0.40, 0.032, 0.001),
+    "concave points_se": (0.0, 0.053, 0.012, 0.001),
+    "symmetry_se": (0.007, 0.080, 0.021, 0.001),
+    "fractal_dimension_se": (0.001, 0.030, 0.004, 0.001),
+    "radius_worst": (7.0, 37.0, 16.0, 0.1),
+    "texture_worst": (12.0, 50.0, 25.0, 0.1),
+    "perimeter_worst": (50.0, 252.0, 107.0, 0.5),
+    "area_worst": (180.0, 4250.0, 880.0, 5.0),
+    "smoothness_worst": (0.07, 0.22, 0.132, 0.001),
+    "compactness_worst": (0.02, 1.06, 0.254, 0.001),
+    "concavity_worst": (0.0, 1.25, 0.272, 0.001),
+    "concave points_worst": (0.0, 0.29, 0.115, 0.001),
+    "symmetry_worst": (0.15, 0.66, 0.290, 0.001),
+    "fractal_dimension_worst": (0.055, 0.208, 0.084, 0.001),
 }
 
 GRUPOS = {
@@ -107,6 +128,7 @@ NOMBRES_LEGIBLES = {
 # ── SHAP explainer (inicializado una sola vez) ────────────────────────────────
 _explainer = None
 
+
 def get_explainer():
     global _explainer
     if _explainer is None:
@@ -115,7 +137,9 @@ def get_explainer():
         # Datos de referencia sintéticos basados en medias típicas
         ref = np.array([[RANGOS[f][2] for f in FEATURES]])
         ref_scaled = scaler.transform(ref)
-        background = np.tile(ref_scaled, (20, 1)) + np.random.normal(0, 0.05, (20, len(FEATURES)))
+        background = np.tile(ref_scaled, (20, 1)) + np.random.normal(
+            0, 0.05, (20, len(FEATURES))
+        )
         _explainer = shap.KernelExplainer(modelo.predict_proba, background)
     return _explainer
 
@@ -139,7 +163,9 @@ def generar_shap_plot(X_scaled, shap_vals):
     bars = ax.barh(top_names, top_vals, color=colors, edgecolor="none", height=0.6)
 
     ax.axvline(0, color="#555", linewidth=0.8)
-    ax.set_xlabel("Valor SHAP (impacto en riesgo de malignidad)", color="#aaa", fontsize=9)
+    ax.set_xlabel(
+        "Valor SHAP (impacto en riesgo de malignidad)", color="#aaa", fontsize=9
+    )
     ax.tick_params(colors="#ccc", labelsize=8)
     for spine in ax.spines.values():
         spine.set_visible(False)
@@ -148,12 +174,19 @@ def generar_shap_plot(X_scaled, shap_vals):
 
     # Leyenda
     from matplotlib.patches import Patch
+
     legend_elements = [
         Patch(facecolor="#e05c5c", label="↑ Aumenta riesgo"),
         Patch(facecolor="#4a90d9", label="↓ Reduce riesgo"),
     ]
-    ax.legend(handles=legend_elements, loc="lower right",
-              facecolor="#1a1d27", edgecolor="#333", labelcolor="#ccc", fontsize=8)
+    ax.legend(
+        handles=legend_elements,
+        loc="lower right",
+        facecolor="#1a1d27",
+        edgecolor="#333",
+        labelcolor="#ccc",
+        fontsize=8,
+    )
 
     plt.tight_layout()
     return fig
@@ -175,7 +208,9 @@ def predecir(*valores):
     else:
         etiqueta = "🟢 BENIGNO"
         color_html = "#4caf7d"
-        descripcion = "El modelo no detecta características de malignidad significativas."
+        descripcion = (
+            "El modelo no detecta características de malignidad significativas."
+        )
 
     resultado_html = f"""
     <div style="background:#1a1d27;border-radius:12px;padding:20px;text-align:center;border:1px solid #2a2d3a;">
@@ -199,8 +234,15 @@ def predecir(*valores):
         fig, ax = plt.subplots(figsize=(7, 3))
         fig.patch.set_facecolor("#0f1117")
         ax.set_facecolor("#0f1117")
-        ax.text(0.5, 0.5, f"SHAP no disponible:\n{str(e)}", ha="center", va="center",
-                color="white", transform=ax.transAxes)
+        ax.text(
+            0.5,
+            0.5,
+            f"SHAP no disponible:\n{str(e)}",
+            ha="center",
+            va="center",
+            color="white",
+            transform=ax.transAxes,
+        )
         ax.axis("off")
 
     return resultado_html, fig
@@ -244,7 +286,8 @@ footer { display: none !important; }
 
 with gr.Blocks(css=CSS, title="Clasificador de Tumor de Mama") as demo:
 
-    gr.HTML("""
+    gr.HTML(
+        """
     <div style="text-align:center;padding:32px 0 16px;border-bottom:1px solid #1f2235;margin-bottom:24px;">
         <div style="font-family:'IBM Plex Mono',monospace;font-size:0.75rem;letter-spacing:0.2em;color:#3d6fff;margin-bottom:8px;">HERRAMIENTA CLÍNICA DE APOYO</div>
         <h1 style="font-family:'IBM Plex Mono',monospace;font-size:2rem;font-weight:600;color:#fff;margin:0;">
@@ -255,7 +298,8 @@ with gr.Blocks(css=CSS, title="Clasificador de Tumor de Mama") as demo:
             <span style="color:#e0a020;">⚠ Solo para uso investigativo. No reemplaza criterio médico.</span>
         </p>
     </div>
-    """)
+    """
+    )
 
     with gr.Row():
         # ── Panel izquierdo: inputs ──────────────────────────────────────────
@@ -267,7 +311,10 @@ with gr.Blocks(css=CSS, title="Clasificador de Tumor de Mama") as demo:
                         for i, feat in enumerate(features):
                             mn, mx, default, step = RANGOS[feat]
                             sl = gr.Slider(
-                                minimum=mn, maximum=mx, value=default, step=step,
+                                minimum=mn,
+                                maximum=mx,
+                                value=default,
+                                step=step,
                                 label=NOMBRES_LEGIBLES[feat],
                             )
                             inputs.append(sl)
@@ -281,18 +328,22 @@ with gr.Blocks(css=CSS, title="Clasificador de Tumor de Mama") as demo:
                     Configura los parámetros y presiona <b>Analizar muestra</b>
                 </div>"""
             )
-            gr.HTML("<div style='margin-top:16px;font-family:IBM Plex Mono,monospace;font-size:0.75rem;color:#555;letter-spacing:0.1em;'>EXPLICABILIDAD · SHAP</div>")
+            gr.HTML(
+                "<div style='margin-top:16px;font-family:IBM Plex Mono,monospace;font-size:0.75rem;color:#555;letter-spacing:0.1em;'>EXPLICABILIDAD · SHAP</div>"
+            )
             shap_plot = gr.Plot()
 
     btn.click(fn=predecir, inputs=inputs, outputs=[resultado, shap_plot])
 
-    gr.HTML("""
+    gr.HTML(
+        """
     <div style="text-align:center;padding:20px 0;margin-top:24px;border-top:1px solid #1f2235;">
         <span style="font-family:'IBM Plex Mono',monospace;font-size:0.7rem;color:#333;letter-spacing:0.15em;">
             MODELO: MLPClassifier · DATASET: Breast Cancer Wisconsin · UMBRAL: 0.3
         </span>
     </div>
-    """)
+    """
+    )
 
 if __name__ == "__main__":
     demo.launch()
