@@ -42,13 +42,12 @@ configuracion_DVC_remoto:
 
 hf-login:
 	git fetch origin
-	git checkout -B update
-	git push -u origin update --force
+	git switch -c update --track origin/update || git switch update
 	pip install -U "huggingface_hub[cli]"
 	hf auth login --token $(HF) --add-to-git-credential
 
 push-hub:
-	huggingface-cli upload alecorlo1234/ClasificadorTumorMama ./Aplicacion --repo-type=space --commit-message="Sincronizar archivos de Aplicacion"
-	huggingface-cli upload alecorlo1234/ClasificadorTumorMama ./Modelo /Modelo --repo-type=space --commit-message="Sincronizar Modelo"
+	hf upload alecorlo1234/ClasificadorTumorMama ./Aplicacion --repo-type=space --commit-message="Sincronizar archivos de Aplicacion"
+	hf upload alecorlo1234/ClasificadorTumorMama ./Modelo /Modelo --repo-type=space --commit-message="Sincronizar Modelo"
 
 deploy: hf-login push-hub
