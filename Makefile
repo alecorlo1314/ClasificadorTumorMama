@@ -12,7 +12,21 @@ train:
 	python entrenamiento.py
 
 eval:
-	cml comment create Resultados/reporte.md
+	test -f ./Resultados/metricas.txt
+
+	echo "## Metricas del Modelo" > reporte.md
+	cat ./Resultados/metricas.txt >> reporte.md
+
+	echo '\n## Matriz de Confusion' >> reporte.md
+	echo '![Matriz de Confusion](./Resultados/matriz_confusion.png)' >> reporte.md
+
+	echo '\n## Curva ROC' >> reporte.md
+	echo '![Curva ROC](./Resultados/roc_curve.png)' >> reporte.md
+
+	echo '\n## SHAP - Importancia de Features' >> reporte.md
+	echo '![SHAP](./Resultados/shap_summary.png)' >> reporte.md
+
+	cml comment create reporte.md
 
 update-branch:
 	git config --global user.name $(USER_NAME)
@@ -25,7 +39,6 @@ configuracion_DVC_remoto:
 	dvc remote default tumor_storage
 	dvc remote modify tumor_storage auth basic
 	dvc remote modify tumor_storage user alecorlo1234
-	dvc remote modify tumor_storage password $(DAGSHUB_TOKEN)
 
 hf-login:
 	git fetch origin

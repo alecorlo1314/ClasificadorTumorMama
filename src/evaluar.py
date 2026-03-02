@@ -104,7 +104,7 @@ def generar_reporte(f1, precision, recall, accuracy):
         f.write(f"| Precision | {precision:.4f} |\n")
         f.write(f"| Recall | {recall:.4f} |\n")
         f.write("\n### Matriz de Confusión\n\n")
-        f.write("![Matriz de Confusión](Resultados/confusion_matrix.png)\n\n")
+        f.write("![Matriz de Confusión](Resultados/matriz_confusion.png)\n\n")
         f.write("### Curva ROC\n\n")
         f.write("![Curva ROC](Resultados/roc_curve.png)\n\n")
         f.write("### SHAP - Importancia de Features\n\n")
